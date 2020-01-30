@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+struct Item: Hashable {
+    var title: String
+    var description: String
+    var rating: Int
+    var image: UIImage?
+}

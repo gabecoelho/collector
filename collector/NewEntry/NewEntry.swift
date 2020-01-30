@@ -9,8 +9,25 @@
 import SwiftUI
 
 struct NewEntry: View {
+    var types = ["Category", "Item"]
+
+    @State private var selectedTypes = 0
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Form {
+                Section {
+                    Picker(selection: $selectedTypes, label: Text("Type")) {
+                        ForEach(0 ..< types.count) {
+                            Text(self.types[$0])
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                    }
+                }
+            }
+            .navigationBarTitle("Create New")
+        }
     }
 }
 
