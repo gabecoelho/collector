@@ -19,18 +19,20 @@ struct ItemRow: View {
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())
             VStack(alignment: .leading) {
-                Text(item.title).bold()
+                Text(item.title)
+                    .bold()
                 Text(item.description)
             }
-            
             Text(String(repeating: "⭐️", count: item.rating))
         }
 
     }
 }
 
+#if DEBUG
 struct ItemRow_Previews: PreviewProvider {
     static var previews: some View {
         ItemRow(item: Item(title: "Title", description: "Description", rating: 5, image: UIImage(named: "memoji")))
     }
 }
+#endif

@@ -17,10 +17,10 @@ struct NewItem: View {
     @Binding var items: [Item]
     @Binding var categoryMap: [String : [Item]]
     
-    @State private var showingAlert = false
+    @State private var showingAlert: Bool = false
     @State private var selectedCategory = 0
-    @State private var title = ""
-    @State private var description = ""
+    @State private var title: String = ""
+    @State private var description: String = ""
     @State private var image: Image?
     @State private var selectedRating = 0
     @State private var showingImagePicker = false
@@ -37,12 +37,12 @@ struct NewItem: View {
                     }
                     TextField("Title:", text: self.$title)
                     TextField("Description:", text: self.$description)
-//                    TextField("Image:", text: self.$image)
                     Picker(selection: $selectedRating, label: Text("Rating:")) {
                         ForEach(0 ..< ratings.count, id: \.self) {
                             Text("\(self.ratings[$0])").tag([$0])
                         }
                     }
+                    Text("Image:")
                     VStack {
                         ZStack {
                             Rectangle()
@@ -68,8 +68,7 @@ struct NewItem: View {
                     // Pop view, show alert, and add new item to model
                         self.showingAlert = true
                         
-//                        let newItem = Item(title: self.title, description: self.description, rating: self.selectedRating + 1, image: self.image)
-                        let newItem = Item(title: self.title, description: self.description, rating: self.selectedRating + 1, image: UIImage())
+                        let newItem = Item(title: self.title, description: self.description, rating: self.selectedRating + 1, image: self.inputImage)
                         let strSelectedCategory: String = self.categories[self.selectedCategory]
                         
                         self.items.append(newItem)

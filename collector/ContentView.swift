@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedView: Int = 0
-    @State var categories: [String] = ["Category 1", "Category 2"]
-    @State var items: [Item] = [Item(title: "Item1", description: "This is my item #1", rating: 4, image: UIImage(named: "memoji")), Item(title: "Item2", description: "This is my item #2", rating: 3, image: UIImage(named: "memoji"))]
+    @State var categories: [String] = ["Sneakers", "Electronics"]
+    @State var items: [Item] = [Item(title: "Pi 3B+", description: "This is the PI I use as a firewall. Need to get a v4", rating: 2, image: UIImage(named: "pi")), Item(title: "Nike Stefan Janoski", description: "I absolutely love this pair.", rating: 5, image: UIImage(named: "janoski"))]
     @State var categoryMap: [String : [Item]] = [:]
     
     init() {
-        self._categoryMap = State(initialValue: ["Category 1": [items[0]], "Category 2": [items[1]]])
+        self._categoryMap = State(initialValue: ["Sneakers": [items[1]],"Electronics": [items[0]]])
     }
     
     
